@@ -51,17 +51,6 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* --- 90s Retro Colors --- */
-    --retro-blue: 188 78% 54%;     /* #1ea9ea */
-    --retro-teal: 167 63% 54%;     /* #16e0bd */
-    --retro-purple: 264 87% 68%;   /* #ab6ff2 */
-    --retro-pink: 344 87% 76%;     /* #ff5dbf */
-    --retro-yellow: 48 100% 70%;   /* #ffe25d */
-    --retro-orange: 29 100% 68%;   /* #ffbe5d */
-    --retro-bg: 184 25% 94%;       /* #e9f6f8 */
-    --retro-violet: 277 91% 74%;   /* #d07bfa */
-    --retro-green: 98 64% 72%;      /* #b3f26a */
   }
 
   .dark {
