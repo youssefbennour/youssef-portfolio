@@ -1,5 +1,6 @@
-
 import React from "react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Github, Award } from "lucide-react";
 
 const experiences = [
   {
@@ -84,28 +85,99 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center py-8 px-2">
       <main className="w-full max-w-[650px] flex flex-col gap-8">
-        <header className="mb-2 text-center">
-          <h1 className="font-bold text-5xl mb-1 tracking-tight font-serif text-black" style={{ fontFamily: "Georgia, serif" }}>
+        <header className="mb-2 text-center flex flex-col items-center">
+          <Avatar className="w-24 h-24 mb-4 border-2 border-gray-300 shadow-sm">
+            <AvatarImage
+              src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=facearea&w=256&h=256&facepad=2"
+              alt="Youssef Bennour Sahli"
+            />
+            <AvatarFallback>YS</AvatarFallback>
+          </Avatar>
+          <h1
+            className="font-bold text-5xl mb-1 tracking-tight font-serif text-black"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
             Youssef Bennour Sahli
           </h1>
-          <div className="text-gray-700 text-lg" style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}>
+          <div
+            className="text-gray-700 text-lg"
+            style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
+          >
             Software Engineer • Problem Solver • Lifelong Learner
           </div>
-          <hr className="my-4 border-gray-400" />
+          <hr className="my-4 border-gray-400 w-full" />
         </header>
 
         <section className="border border-gray-300 rounded bg-gray-50 px-5 py-4 mb-3 shadow-sm">
-          <div className="text-lg font-semibold text-black mb-2 underline underline-offset-4" style={{ fontFamily: "Georgia, serif" }}>
+          <div
+            className="text-lg font-semibold text-black mb-2 underline underline-offset-4"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
             About Me
           </div>
-          <div className="text-base text-gray-900 mb-1" style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}>
-            A Software Engineer with a thirst for learning new technologies, uncovering the unknowns, and taking on challenges that push me beyond my current knowledge. 
+          <div
+            className="text-base text-gray-900 mb-1"
+            style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
+          >
+            A Software Engineer with a thirst for learning new technologies, uncovering the unknowns, and taking on challenges that push me beyond my current knowledge.
             When life gets too predictable, I dive into competitive programming.
           </div>
         </section>
 
+        {/* Open Source Contributions */}
+        <section className="border border-gray-300 rounded bg-white px-5 py-4 shadow-sm">
+          <div className="flex flex-row items-center gap-2 mb-2">
+            <Github className="w-5 h-5 text-gray-700" />
+            <span
+              className="text-lg font-semibold text-black underline underline-offset-4"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
+              Open Source Contributions
+            </span>
+          </div>
+          <div
+            className="text-base text-gray-900 mb-2"
+            style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
+          >
+            Developed an open source, production-ready starter template for building modular monolith applications with .NET 9.0.
+            The template has been adopted in real-world production projects and is currently powering revenue-generating applications.
+          </div>
+          <a
+            href="https://github.com/youssefbennour/AspNetCore.Starter"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 font-mono text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-50 transition"
+            style={{ textDecoration: "none", color: "#1660A6" }}
+          >
+            <Github size={18} className="inline mr-1" /> github.com/youssefbennour/AspNetCore.Starter
+          </a>
+        </section>
+
+        {/* Honors & Awards */}
+        <section className="border border-gray-300 rounded bg-white px-5 py-4 shadow-sm">
+          <div className="flex flex-row items-center gap-2 mb-2">
+            <Award className="w-5 h-5 text-gray-700" />
+            <span
+              className="text-lg font-semibold text-black underline underline-offset-4"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
+              Honors & Awards
+            </span>
+          </div>
+          <ul className="ml-6 list-disc text-base text-gray-900" style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}>
+            <li>
+              <span className="font-bold">4th Place Winner</span> | Salam Hack AI<br />
+              <span className="text-sm text-gray-600">Hackathon 2025</span>
+            </li>
+          </ul>
+        </section>
+
+        {/* Experience */}
         <section>
-          <div className="text-lg font-semibold text-black underline mb-2 underline-offset-4" style={{ fontFamily: "Georgia, serif" }}>
+          <div
+            className="text-lg font-semibold text-black underline mb-2 underline-offset-4"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
             Experience
           </div>
           <div className="flex flex-col gap-6">
@@ -124,17 +196,25 @@ export default function Index() {
                   <span className="mx-1 hidden sm:inline-block">/</span>
                   <span className="text-base text-blue-700 font-semibold">{exp.company}</span>
                 </div>
-                <div className="text-sm text-gray-700 mb-1">{exp.period} — <span className="italic">{exp.location}</span></div>
+                <div className="text-sm text-gray-700 mb-1">
+                  {exp.period} — <span className="italic">{exp.location}</span>
+                </div>
                 <ul className="list-disc ml-6 text-sm leading-relaxed mt-2 text-gray-900">
-                  {exp.details.map((d, i) => <li key={i}>{d}</li>)}
+                  {exp.details.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
                 </ul>
               </div>
             ))}
           </div>
         </section>
 
+        {/* Education */}
         <section>
-          <div className="text-lg font-semibold text-black underline mb-2 mt-8 underline-offset-4" style={{ fontFamily: "Georgia, serif" }}>
+          <div
+            className="text-lg font-semibold text-black underline mb-2 mt-8 underline-offset-4"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
             Education
           </div>
           <div className="flex flex-col gap-4">
@@ -144,7 +224,9 @@ export default function Index() {
                 className="border border-gray-300 rounded bg-white px-5 py-3"
                 style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
               >
-                <span className="text-base font-bold text-black" style={{ fontFamily: "Georgia, serif" }}>{edu.degree}</span>
+                <span className="text-base font-bold text-black" style={{ fontFamily: "Georgia, serif" }}>
+                  {edu.degree}
+                </span>
                 <div className="text-sm text-gray-700">{edu.school}</div>
                 <div className="text-sm text-gray-500">{edu.period}</div>
               </div>
@@ -152,6 +234,7 @@ export default function Index() {
           </div>
         </section>
 
+        {/* Footer */}
         <footer className="mt-10 text-center text-xs text-gray-500">
           &copy; {new Date().getFullYear()} Youssef Bennour Sahli &mdash; Crafted with React, styled for the 90s.
         </footer>
