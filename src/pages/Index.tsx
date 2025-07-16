@@ -271,34 +271,9 @@ export default function Index() {
           </ul>
         </section>
 
-        {/* Education */}
-        <section>
-          <div
-            className="text-lg font-semibold text-black underline mb-2 mt-8 underline-offset-4"
-            style={{ fontFamily: "Georgia, serif" }}
-          >
-            Education
-          </div>
-          <div className="flex flex-col gap-4">
-            {education.map((edu, idx) => (
-              <div
-                key={idx}
-                className="border border-gray-300 rounded bg-white px-5 py-3"
-                style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
-              >
-                <span className="text-base font-bold text-black" style={{ fontFamily: "Georgia, serif" }}>
-                  {edu.degree}
-                </span>
-                <div className="text-sm text-gray-700">{edu.school}</div>
-                <div className="text-sm text-gray-500">{edu.period}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Footer */}
         <footer className="mt-10 text-center text-xs text-gray-500">
-          &copy; {new Date().getFullYear()} Youssef Bennour Sahli &mdash; Crafted with React, styled for the 90s.
+          &copy; {new Date().getFullYear()} Youssef Bennour Sahli.
         </footer>
       </main>
 
