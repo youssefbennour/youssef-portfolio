@@ -12,9 +12,13 @@ const projects = [
     techStack: [".NET Core", "C#", "Microsoft Orleans", "EF Core", "PostgreSQL", "Nomad", "Terraform"],
     description: "Global video hosting & streaming platform specializing in secure video delivery for e-learning platforms, media, enterprises & broadcasters.",
     images: [
+      "../../public/bmdrm-7.png",
+      "../../public/bmdrm-8.png",
       "../../public/bmdrm-2.png",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&h=600"
+      "../../public/bmdrm-3.png",
+      "../../public/bmdrm-4.png",
+      "../../public/bmdrm-5.png",
+      "../../public/bmdrm-6.png",
     ]
   },
   {
@@ -184,7 +188,7 @@ export default function Index() {
                             <img
                               src={image}
                               alt={`${project.title} screenshot ${imageIdx + 1}`}
-                              className="w-full h-48 object-contain rounded cursor-pointer hover:opacity-80 transition-opacity"
+                              className="w-full h-55 object-contain rounded cursor-pointer hover:opacity-80 transition-opacity"
                               onClick={() => openModal(idx, imageIdx)}
                             />
                           </CardContent>
