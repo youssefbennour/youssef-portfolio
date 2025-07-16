@@ -152,8 +152,9 @@ export default function Index() {
                 className="border border-gray-300 rounded bg-white px-5 py-4 shadow-sm"
               >
                 <h3 
-                  className="text-xl font-bold text-black mb-2" 
+                  className="text-xl font-bold text-black mb-2 cursor-pointer hover:text-blue-600 hover:underline transition-colors" 
                   style={{ fontFamily: "Georgia, serif" }}
+                  onClick={() => openModal(idx, 0)}
                 >
                   {project.title}
                 </h3>
@@ -297,7 +298,7 @@ export default function Index() {
               </button>
               
               <div className="flex-1 flex items-center justify-center p-4">
-                <Carousel className="w-full max-w-6xl">
+                <Carousel className="w-full max-w-6xl" opts={{ startIndex: selectedImageIndex }}>
                   <CarouselContent>
                     {projects[selectedProject].images.map((image, imageIdx) => (
                       <CarouselItem key={imageIdx}>
