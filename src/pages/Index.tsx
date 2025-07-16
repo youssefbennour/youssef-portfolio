@@ -1,69 +1,28 @@
 import React from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Github, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Github, Award, Download, FolderOpen } from "lucide-react";
 
-const experiences = [
+const projects = [
   {
-    role: "Software Engineer",
-    company: "Softylines",
-    period: "January 2024 - Present (1 year 6 months)",
-    location: "Sousse, Tunisia",
-    details: [
-      <>
-        Led a team of 4 Junior Software Engineers, delivering a complex accountability project <b>2+ months ahead of schedule</b>, enabling independent feature development and reducing technical debt using <b>Domain-Driven Design</b>.
-      </>,
-      <>
-        Built a reusable multi-tenancy service in <b>ASP.NET Core</b> (cross-tenant memberships, invitations, RBAC, auditing) used in 3+ web apps, saving 190+ dev hours each.
-      </>,
-      <>
-        Developed a <b>DRM (Digital Rights Management) video transcoding microservice</b> in C#, scaling to 50+ cloud and on-prem machines, efficiently transcoding 120,000+ videos/month.
-      </>,
-      <>
-        Enhanced web app security via OpenID Connect (Keycloak), secure cookies, and a custom reverse proxy (<b>Microsoft YARP</b>), reducing XSS/CSRF risk.
-      </>,
-      <>
-        Created a fair HTTP long polling scheduling algorithm, cutting video queue peak wait times <b>from 30h to 1h per client</b>.
-      </>,
-      <>
-        Advocated for team-wide code reviews, consensus-driven technical decisions.
-      </>,
-      <>
-        Orchestrated 30+ microservices & 50+ machines using <b>Nomad, Ansible, Consul</b>.
-      </>,
-      <>
-        Built integration tests with <b>TestContainers</b> and <b>xUnit</b>, simulating a real prod environment.
-      </>
+    title: "AspNetCore Starter Template",
+    techStack: [".NET Core", "ASP.NET", "C#", "Domain-Driven Design", "Multi-tenancy"],
+    description: "A production-ready starter template for building modular monolith applications with .NET 9.0. Features multi-tenancy, RBAC, auditing, and DDD patterns.",
+    images: [
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&h=600"
     ]
   },
   {
-    role: "Junior Software Engineer",
-    company: "Softylines",
-    period: "May 2023 - December 2023 (8 months)",
-    location: "Sousse, Tunisia",
-    details: [
-      <>
-        Key contributor to 'IdentiQube', an Identity and Access Management solution—developed a <b>dynamic schema mgmt system</b> in .NET Core w/ web-based Blazor UI.
-      </>,
-      <>
-        Implemented a <b>metadata-driven modeling language</b> atop SQL Server for flexible IAM data and integrations.
-      </>,
-      <>
-        Built a fluent C# query builder for custom IAM models and automated dynamic form generation.
-      </>
-    ]
-  },
-  {
-    role: "Software Engineer Intern",
-    company: "Softylines",
-    period: "October 2022 - April 2023 (7 months)",
-    location: "Sousse, Tunisia",
-    details: [
-      <>
-        Built a real-time collective-buying app in <b>.NET Core & SignalR</b>, supporting vendor-set pricing tiers and live updates.
-      </>,
-      <>
-        Contributed 10+ reusable UI components to a Blazor library.
-      </>
+    title: "DRM Video Transcoding Service",
+    techStack: ["C#", "Microservices", "Cloud Computing", "Video Processing"],
+    description: "A scalable DRM video transcoding microservice handling 120,000+ videos monthly across 50+ cloud and on-premise machines.",
+    images: [
+      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&h=600"
     ]
   }
 ];
@@ -172,41 +131,105 @@ export default function Index() {
           </ul>
         </section>
 
-        {/* Experience */}
+        {/* Projects */}
         <section>
-          <div
-            className="text-lg font-semibold text-black underline mb-2 underline-offset-4"
-            style={{ fontFamily: "Georgia, serif" }}
-          >
-            Experience
+          <div className="flex flex-row items-center gap-2 mb-4">
+            <FolderOpen className="w-5 h-5 text-gray-700" />
+            <span
+              className="text-lg font-semibold text-black underline underline-offset-4"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
+              Projects
+            </span>
           </div>
           <div className="flex flex-col gap-6">
-            {experiences.map((exp, idx) => (
+            {projects.map((project, idx) => (
               <div
                 key={idx}
-                className="border border-gray-300 rounded bg-white px-5 py-3"
-                style={{
-                  fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
-                }}
+                className="border border-gray-300 rounded bg-white px-5 py-4 shadow-sm"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1">
-                  <span className="text-xl font-bold text-black" style={{ fontFamily: "Georgia, serif" }}>
-                    {exp.role}
-                  </span>
-                  <span className="mx-1 hidden sm:inline-block">/</span>
-                  <span className="text-base text-blue-700 font-semibold">{exp.company}</span>
+                <h3 
+                  className="text-xl font-bold text-black mb-2" 
+                  style={{ fontFamily: "Georgia, serif" }}
+                >
+                  {project.title}
+                </h3>
+                
+                <div className="mb-3">
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech, techIdx) => (
+                      <span
+                        key={techIdx}
+                        className="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded border"
+                        style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="text-sm text-gray-700 mb-1">
-                  {exp.period} — <span className="italic">{exp.location}</span>
-                </div>
-                <ul className="list-disc ml-6 text-sm leading-relaxed mt-2 text-gray-900">
-                  {exp.details.map((d, i) => (
-                    <li key={i}>{d}</li>
-                  ))}
-                </ul>
+                
+                <p 
+                  className="text-base text-gray-900 mb-4"
+                  style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
+                >
+                  {project.description}
+                </p>
+                
+                <Carousel className="w-full max-w-xs mx-auto">
+                  <CarouselContent>
+                    {project.images.map((image, imageIdx) => (
+                      <CarouselItem key={imageIdx}>
+                        <Card>
+                          <CardContent className="flex aspect-square items-center justify-center p-2">
+                            <img
+                              src={image}
+                              alt={`${project.title} screenshot ${imageIdx + 1}`}
+                              className="w-full h-full object-cover rounded"
+                            />
+                          </CardContent>
+                        </Card>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Download CV */}
+        <section className="border border-gray-300 rounded bg-gray-50 px-5 py-4 shadow-sm text-center">
+          <div className="flex flex-row items-center justify-center gap-2 mb-3">
+            <Download className="w-5 h-5 text-gray-700" />
+            <span
+              className="text-lg font-semibold text-black underline underline-offset-4"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
+              Download CV
+            </span>
+          </div>
+          <p 
+            className="text-base text-gray-900 mb-4"
+            style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
+          >
+            Get a detailed overview of my experience, skills, and accomplishments.
+          </p>
+          <Button 
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2"
+            onClick={() => {
+              // Create a temporary link to download CV
+              const link = document.createElement('a');
+              link.href = '/cv-youssef-bennour-sahli.pdf'; // You'll need to add this file to public folder
+              link.download = 'Youssef_Bennour_Sahli_CV.pdf';
+              link.click();
+            }}
+          >
+            <Download className="w-4 h-4 mr-2" />
+            Download PDF
+          </Button>
         </section>
 
         {/* Education */}
