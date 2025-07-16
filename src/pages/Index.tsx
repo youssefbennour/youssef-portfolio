@@ -305,33 +305,61 @@ export default function Index() {
       {/* Fullscreen Image Modal */}
       {selectedProject !== null && (
         <Dialog open={selectedProject !== null} onOpenChange={closeModal}>
-          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/80">
+          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/10">
             <div className="relative w-full h-full flex items-center justify-center">
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors"
+                className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
               >
-                <X size={32} />
+                <X size={24} />
               </button>
               
-              <div className="flex items-center justify-center p-4 w-full">
-                <Carousel className="w-full max-w-6xl" opts={{ startIndex: selectedImageIndex }}>
-                  <CarouselContent>
-                    {projects[selectedProject].images.map((image, imageIdx) => (
-                      <CarouselItem key={imageIdx}>
-                        <div className="flex items-center justify-center h-[85vh]">
-                          <img
-                            src={image}
-                            alt={`${projects[selectedProject].title} screenshot ${imageIdx + 1}`}
-                            className="max-w-full max-h-full object-contain"
-                          />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="left-4 text-white border-white hover:bg-white hover:text-black" />
-                  <CarouselNext className="right-4 text-white border-white hover:bg-white hover:text-black" />
-                </Carousel>
+              <div className="flex items-center justify-between w-full px-16">
+                <button 
+                  className="absolute left-8 z-50 text-white border border-white hover:bg-white hover:text-black transition-colors bg-black/50 rounded-full p-3"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const carousel = e.currentTarget.parentElement?.querySelector('[data-carousel]');
+                    carousel?.dispatchEvent(new CustomEvent('carousel-prev'));
+                  }}
+                >
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m6.85355 3.14645l-.70711.70711L8.79289 6.5H1v1h7.79289l-2.64645 2.64645.70711.70711L10.2071 7.5 6.85355 3.14645z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" transform="rotate(180 7.5 7.5)"></path>
+                  </svg>
+                </button>
+                
+                <div className="flex items-center justify-center flex-1">
+                  <Carousel className="w-full max-w-4xl" opts={{ startIndex: selectedImageIndex }} data-carousel>
+                    <CarouselContent>
+                      {projects[selectedProject].images.map((image, imageIdx) => (
+                        <CarouselItem key={imageIdx}>
+                          <div className="flex items-center justify-center h-[85vh]">
+                            <img
+                              src={image}
+                              alt={`${projects[selectedProject].title} screenshot ${imageIdx + 1}`}
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="hidden" />
+                    <CarouselNext className="hidden" />
+                  </Carousel>
+                </div>
+                
+                <button 
+                  className="absolute right-8 z-50 text-white border border-white hover:bg-white hover:text-black transition-colors bg-black/50 rounded-full p-3"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const carousel = e.currentTarget.parentElement?.querySelector('[data-carousel]');
+                    carousel?.dispatchEvent(new CustomEvent('carousel-next'));
+                  }}
+                >
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m6.85355 3.14645l-.70711.70711L8.79289 6.5H1v1h7.79289l-2.64645 2.64645.70711.70711L10.2071 7.5 6.85355 3.14645z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+                  </svg>
+                </button>
               </div>
             </div>
           </DialogContent>
