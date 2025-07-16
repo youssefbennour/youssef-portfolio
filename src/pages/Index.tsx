@@ -9,6 +9,7 @@ import { Github, Award, Download, FolderOpen, X } from "lucide-react";
 const projects = [
   {
     title: "BMDRM",
+    url: "https://bmdrm.com",
     techStack: [".NET Core", "C#", "Microsoft Orleans", "EF Core", "PostgreSQL", "Nomad", "Terraform"],
     description: "Global video hosting & streaming platform with over 20k active users, specializing in secure video delivery for e-learning platforms, media, enterprises & broadcasters using DRM technologies.",
     images: [
@@ -23,6 +24,7 @@ const projects = [
   },
   {
     title: "Triodax",
+    url: "https://app.triodax.com",
     techStack: ["ASP.NET Core", "C#", "Redis", "Postgres", "Keycloak", "Xunit", "React JS"],
     description: "Multi-tenant accounting platform automating financial reporting for companies, ensuring compliance with Tunisia’s fiscal regulations, and enabling acccountants to work for multiple organizations with a single account through an intuitive tenant-specific permissions and invitations.",
     images: [
@@ -47,19 +49,6 @@ const projects = [
       "/triodax_17.png",
     ]
   }
-];
-
-const education = [
-  {
-    degree: "Bachelor's degree, Computer Science",
-    school: "Horizon School of Digital Technologies - Tunisia",
-    period: "October 2022 - May 2025"
-  },
-  {
-    degree: "High School Diploma, Mathematics",
-    school: "Lycée Mohamed Boudhina Hammamet",
-    period: "September 2017 - June 2022"
-  },
 ];
 
 export default function Index() {
@@ -171,7 +160,7 @@ export default function Index() {
                 <h3 
                   className="text-xl font-bold text-black mb-2 cursor-pointer hover:text-blue-600 hover:underline transition-colors" 
                   style={{ fontFamily: "Georgia, serif" }}
-                  onClick={() => openModal(idx, 0)}
+                  onClick={() => window.open(project.url)}
                 >
                   {project.title}
                 </h3>
