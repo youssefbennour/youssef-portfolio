@@ -304,8 +304,8 @@ export default function Index() {
       {/* Fullscreen Image Modal */}
       {selectedProject !== null && (
         <Dialog open={selectedProject !== null} onOpenChange={closeModal}>
-          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black">
-            <div className="relative w-full h-full flex flex-col">
+          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/80">
+            <div className="relative w-full h-full flex items-center justify-center">
               <button
                 onClick={closeModal}
                 className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors"
@@ -313,12 +313,12 @@ export default function Index() {
                 <X size={32} />
               </button>
               
-              <div className="flex-1 flex items-center justify-center p-4">
+              <div className="flex items-center justify-center p-4 w-full">
                 <Carousel className="w-full max-w-6xl" opts={{ startIndex: selectedImageIndex }}>
                   <CarouselContent>
                     {projects[selectedProject].images.map((image, imageIdx) => (
                       <CarouselItem key={imageIdx}>
-                        <div className="flex items-center justify-center h-[80vh]">
+                        <div className="flex items-center justify-center h-[85vh]">
                           <img
                             src={image}
                             alt={`${projects[selectedProject].title} screenshot ${imageIdx + 1}`}
@@ -331,11 +331,6 @@ export default function Index() {
                   <CarouselPrevious className="left-4 text-white border-white hover:bg-white hover:text-black" />
                   <CarouselNext className="right-4 text-white border-white hover:bg-white hover:text-black" />
                 </Carousel>
-              </div>
-              
-              <div className="text-center text-white p-4 bg-black/50">
-                <h3 className="text-xl font-bold mb-2">{projects[selectedProject].title}</h3>
-                <p className="text-sm text-gray-300">{projects[selectedProject].description}</p>
               </div>
             </div>
           </DialogContent>
