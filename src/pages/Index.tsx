@@ -10,7 +10,7 @@ const projects = [
   {
     title: "BMDRM",
     techStack: [".NET Core", "C#", "Microsoft Orleans", "EF Core", "PostgreSQL", "Nomad", "Terraform"],
-    description: "Global video hosting & streaming platform specializing in secure video delivery for e-learning platforms, media, enterprises & broadcasters.",
+    description: "Global video hosting & streaming platform with over 20k active users, specializing in secure video delivery for e-learning platforms, media, enterprises & broadcasters using DRM technologies.",
     images: [
       "../../public/bmdrm-7.png",
       "../../public/bmdrm-8.png",
@@ -22,12 +22,28 @@ const projects = [
     ]
   },
   {
-    title: "DRM Video Transcoding Service",
-    techStack: ["C#", "Microservices", "Cloud Computing", "Video Processing"],
-    description: "A scalable DRM video transcoding microservice handling 120,000+ videos monthly across 50+ cloud and on-premise machines.",
+    title: "Triodax",
+    techStack: ["ASP.NET Core", "C#", "Redis", "Postgres", "Keycloak", "Xunit", "React JS"],
+    description: "Multi-tenant accounting platform automating financial reporting for companies, ensuring compliance with Tunisia’s fiscal regulations, and enabling acccountants to work for multiple organizations with a single account through an intuitive tenant-specific permissions and invitations.",
     images: [
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&h=600"
+      "../../public/triodax_auth.png",
+      "../../public/triodax_0.png",
+      "../../public/triodax_1.png",
+      "../../public/triodax_2.png",
+      "../../public/triodax_3.png",
+      "../../public/triodax_4.png",
+      "../../public/triodax_5.png",
+      "../../public/triodax_6.png",
+      "../../public/triodax_7.png",
+      "../../public/triodax_8.png",
+      "../../public/triodax_9.png",
+      "../../public/triodax_10.png",
+      "../../public/triodax_11.png",
+      "../../public/triodax_12.png",
+      "../../public/triodax_13.png",
+      "../../public/triodax_14.png",
+      "../../public/triodax_15.png",
+      "../../public/triodax_16.png",
     ]
   }
 ];
@@ -96,7 +112,7 @@ export default function Index() {
             className="text-base text-gray-900 mb-1"
             style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
           >
-            I'm a backend engineer with over two years of experience building scalable systems used by thousands of users (Video Streaming, IAM, Fintech). I thrive in complex environments, often being the go-to person for debugging hard issues and delivering stable, production-ready features under pressure.
+            A Software Engineer with over two years of experience building scalable systems used by thousands of users (Video Streaming, IAM, Fintech). I thrive in complex environments, often being the go-to person for debugging hard issues and delivering stable, production-ready features under pressure.
             <br></br>
             I’ve led a team of four engineers to ship a SaaS accounting platform, and I’ve consistently been trusted to own and maintain critical features across projects. I communicate clearly, collaborate well under pressure, and adapt quickly to new codebases and responsibilities.
           </div>
