@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Github, Award, Download, FolderOpen } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Github, Award, Download, FolderOpen, X } from "lucide-react";
 
 const projects = [
   {
@@ -41,6 +42,19 @@ const education = [
 ];
 
 export default function Index() {
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const openModal = (projectIndex: number, imageIndex: number) => {
+    setSelectedProject(projectIndex);
+    setSelectedImageIndex(imageIndex);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+    setSelectedImageIndex(0);
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col items-center py-8 px-2">
       <main className="w-full max-w-[650px] flex flex-col gap-8">
@@ -161,16 +175,17 @@ export default function Index() {
                   {project.description}
                 </p>
                 
-                <Carousel className="w-full max-w-xs mx-auto">
+                <Carousel className="w-full max-w-md mx-auto">
                   <CarouselContent>
                     {project.images.map((image, imageIdx) => (
                       <CarouselItem key={imageIdx}>
                         <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-2">
+                          <CardContent className="p-2">
                             <img
                               src={image}
                               alt={`${project.title} screenshot ${imageIdx + 1}`}
-                              className="w-full h-full object-cover rounded"
+                              className="w-full h-48 object-contain rounded cursor-pointer hover:opacity-80 transition-opacity"
+                              onClick={() => openModal(idx, imageIdx)}
                             />
                           </CardContent>
                         </Card>
@@ -264,6 +279,47 @@ export default function Index() {
           &copy; {new Date().getFullYear()} Youssef Bennour Sahli &mdash; Crafted with React, styled for the 90s.
         </footer>
       </main>
+
+      {/* Fullscreen Image Modal */}
+      {selectedProject !== null && (
+        <Dialog open={selectedProject !== null} onOpenChange={closeModal}>
+          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black">
+            <div className="relative w-full h-full flex flex-col">
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors"
+              >
+                <X size={32} />
+              </button>
+              
+              <div className="flex-1 flex items-center justify-center p-4">
+                <Carousel className="w-full max-w-6xl">
+                  <CarouselContent>
+                    {projects[selectedProject].images.map((image, imageIdx) => (
+                      <CarouselItem key={imageIdx}>
+                        <div className="flex items-center justify-center h-[80vh]">
+                          <img
+                            src={image}
+                            alt={`${projects[selectedProject].title} screenshot ${imageIdx + 1}`}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-4 text-white border-white hover:bg-white hover:text-black" />
+                  <CarouselNext className="right-4 text-white border-white hover:bg-white hover:text-black" />
+                </Carousel>
+              </div>
+              
+              <div className="text-center text-white p-4 bg-black/50">
+                <h3 className="text-xl font-bold mb-2">{projects[selectedProject].title}</h3>
+                <p className="text-sm text-gray-300">{projects[selectedProject].description}</p>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }
