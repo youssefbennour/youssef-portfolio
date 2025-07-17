@@ -28,25 +28,25 @@ const projects = [
     techStack: ["ASP.NET Core", "C#", "DDD", "Redis", "Postgres", "Keycloak", "Xunit", "Docker", "Microsoft YARP", "React", "OpenTelemetry"],
     description: "Multi-tenant accounting platform automating financial reporting for companies, ensuring compliance with Tunisia’s fiscal regulations, and enabling acccountants to work for multiple organizations with a single account through intuitive tenant-specific permissions and invitations.",
     images: [
-      "/triodax_auth.png",
-      "/triodax_0.png",
-      "/triodax_1.png",
-      "/triodax_2.png",
-      "/triodax_3.png",
-      "/triodax_4.png",
-      "/triodax_5.png",
-      "/triodax_6.png",
-      "/triodax_7.png",
-      "/triodax_8.png",
-      "/triodax_9.png",
-      "/triodax_10.png",
-      "/triodax_11.png",
-      "/triodax_12.png",
-      "/triodax_13.png",
-      "/triodax_14.png",
-      "/triodax_15.png",
-      "/triodax_16.png",
-      "/triodax_17.png",
+      "triodax_auth.png",
+      "triodax_0.png",
+      "triodax_1.png",
+      "triodax_2.png",
+      "triodax_3.png",
+      "triodax_4.png",
+      "triodax_5.png",
+      "triodax_6.png",
+      "triodax_7.png",
+      "triodax_8.png",
+      "triodax_9.png",
+      "triodax_10.png",
+      "triodax_11.png",
+      "triodax_12.png",
+      "triodax_13.png",
+      "triodax_14.png",
+      "triodax_15.png",
+      "triodax_16.png",
+      "triodax_17.png",
     ]
   }
 ];
@@ -71,7 +71,7 @@ export default function Index() {
         <header className="mb-2 text-center flex flex-col items-center">
           <Avatar className="w-24 h-24 mb-4 border-2 border-gray-300 shadow-sm">
             <AvatarImage
-              src="/youssef_bennour_photo.jpg"
+              src="youssef_bennour_photo.jpg"
               alt="Youssef Bennour Sahli"
             />
             <AvatarFallback>YS</AvatarFallback>
@@ -178,7 +178,7 @@ export default function Index() {
             onClick={() => {
               // Create a temporary link to download CV
               const link = document.createElement('a');
-              link.href = '../../Youssef_Bennour_Resume.pdf';
+              link.href = 'Youssef_Bennour_Resume.pdf';
               link.download = 'Youssef_Bennour_Resume.pdf';
               link.click();
             }}
