@@ -10,7 +10,7 @@ const projects = [
   {
     title: "BMDRM",
     url: "https://bmdrm.com",
-    techStack: [".NET Core", "C#", "Microsoft Orleans", "EF Core", "PostgreSQL", "Nomad", "Terraform"],
+    techStack: [".NET Core", "C#", "Microsoft Orleans", "EF Core", "PostgreSQL", "Docker", "Nomad", "Consul", "Terraform", "Nginx", "Next.js"],
     description: "Global video hosting & streaming platform with over 20k active users, specializing in secure video delivery for e-learning platforms, media, enterprises & broadcasters using DRM technologies.",
     images: [
       "bmdrm-7.png",
@@ -25,7 +25,7 @@ const projects = [
   {
     title: "Triodax",
     url: "https://app.triodax.com",
-    techStack: ["ASP.NET Core", "C#", "Redis", "Postgres", "Keycloak", "Xunit", "React JS"],
+    techStack: ["ASP.NET Core", "C#", "Redis", "Postgres", "Keycloak", "Xunit", "Docker", "Microsoft YARP", "React", "OpenTelemetry"],
     description: "Multi-tenant accounting platform automating financial reporting for companies, ensuring compliance with Tunisia’s fiscal regulations, and enabling acccountants to work for multiple organizations with a single account through intuitive tenant-specific permissions and invitations.",
     images: [
       "/triodax_auth.png",
@@ -102,10 +102,9 @@ export default function Index() {
             className="text-base text-gray-900 mb-1"
             style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
           >
-            A Software Engineer with over two years of experience building scalable systems used by thousands of users (Video Streaming, IAM, Fintech). I thrive in complex environments, often being the go-to person for debugging hard issues and delivering stable, production-ready features under pressure.
-            <br></br>
-            I’ve led a team of four engineers to ship a SaaS accounting platform, and I’ve consistently been trusted to own and maintain critical features across projects. I communicate clearly, collaborate well under pressure, and adapt quickly to new codebases and responsibilities.
-          </div>
+            A Software Engineer with over two years of experience building scalable systems used by thousands of users (Video Streaming, IAM, Fintech). I thrive in complex environments, often being the go-to person for debugging hard issues and delivering stable, production-ready features.
+            <br></br><br></br>
+            I led a team of four engineers to deliver a SaaS accounting platform ahead of schedule, and I've consistently been trusted to own and maintain critical features. I'm quick to adapt to new systems, communicate clearly under pressure, and collaborate to solve issues without friction.          </div>
         </section>
 
         {/* Download CV */}
