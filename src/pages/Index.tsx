@@ -71,7 +71,7 @@ export default function Index() {
         <header className="mb-2 text-center flex flex-col items-center">
           <Avatar className="w-24 h-24 mb-4 border-2 border-gray-300 shadow-sm">
             <AvatarImage
-              src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=facearea&w=256&h=256&facepad=2"
+              src="/youssef_bennour_photo.jpg"
               alt="Youssef Bennour Sahli"
             />
             <AvatarFallback>YS</AvatarFallback>
@@ -80,18 +80,13 @@ export default function Index() {
             className="font-bold text-5xl mb-1 tracking-tight font-serif text-black"
             style={{ fontFamily: "Georgia, serif" }}
           >
-            Youssef Bennour Sahli
+            Youssef Bennour
           </h1>
-          <div
-            className="text-gray-700 text-lg"
-            style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
-          >
-            Software Engineer • Problem Solver • Lifelong Learner
-          </div>
-          
           {/* Contact Info */}
           <div className="flex flex-col items-center gap-3 mt-4">
-            <div className="flex items-center gap-2 text-gray-600">
+            {/* Social Icons */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-gray-600">
               <Mail className="w-4 h-4" />
               <a 
                 href="mailto:youssefbennour15@gmail.com" 
@@ -101,9 +96,7 @@ export default function Index() {
                 youssefbennour15@gmail.com
               </a>
             </div>
-            
-            {/* Social Icons */}
-            <div className="flex items-center gap-4">
+            <p>|</p>
               <a 
                 href="https://linkedin.com/in/youssef-bennour-sahli" 
                 target="_blank" 
