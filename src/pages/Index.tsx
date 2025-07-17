@@ -25,7 +25,7 @@ const projects = [
   {
     title: "Triodax",
     url: "https://app.triodax.com",
-    techStack: ["ASP.NET Core", "C#", "Redis", "Postgres", "Keycloak", "Xunit", "Docker", "Microsoft YARP", "React", "OpenTelemetry"],
+    techStack: ["ASP.NET Core", "C#", "DDD", "Redis", "Postgres", "Keycloak", "Xunit", "Docker", "Microsoft YARP", "React", "OpenTelemetry"],
     description: "Multi-tenant accounting platform automating financial reporting for companies, ensuring compliance with Tunisia’s fiscal regulations, and enabling acccountants to work for multiple organizations with a single account through intuitive tenant-specific permissions and invitations.",
     images: [
       "/triodax_auth.png",
