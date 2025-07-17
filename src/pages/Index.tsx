@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Github, Award, Download, FolderOpen, X } from "lucide-react";
+import { Github, Award, Download, FolderOpen, X, Linkedin, Mail } from "lucide-react";
 
 const projects = [
   {
@@ -88,7 +88,63 @@ export default function Index() {
           >
             Software Engineer • Problem Solver • Lifelong Learner
           </div>
-          <hr className="my-4 border-gray-400 w-full" />
+          
+          {/* Contact Info */}
+          <div className="flex flex-col items-center gap-3 mt-4">
+            <div className="flex items-center gap-2 text-gray-600">
+              <Mail className="w-4 h-4" />
+              <a 
+                href="mailto:youssefbennour15@gmail.com" 
+                className="text-sm hover:text-blue-600 transition-colors"
+                style={{ fontFamily: "Verdana, Geneva, Tahoma, sans-serif" }}
+              >
+                youssefbennour15@gmail.com
+              </a>
+            </div>
+            
+            {/* Social Icons */}
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://linkedin.com/in/youssef-bennour-sahli" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://github.com/youssefbennour" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://medium.com/@youssefbennour" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-green-600 transition-colors"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                </svg>
+              </a>
+            </div>
+            
+            {/* Call to Action */}
+            <Button 
+              className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-8 py-2"
+              onClick={() => {
+                const projectsSection = document.querySelector('[data-projects-section]');
+                projectsSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              View My Work
+            </Button>
+          </div>
+          
+          <hr className="my-6 border-gray-400 w-full" />
         </header>
 
         <section className="border border-gray-300 rounded bg-gray-50 px-5 py-4 mb-3 shadow-sm">
@@ -140,7 +196,7 @@ export default function Index() {
         </section>
 
         {/* Projects */}
-        <section>
+        <section data-projects-section>
           <div className="flex flex-row items-center gap-2 mb-4">
             <FolderOpen className="w-5 h-5 text-gray-700" />
             <span
